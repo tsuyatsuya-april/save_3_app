@@ -1,0 +1,17 @@
+<%= form_with(model: @company_registration_form, local: true) do |form| %>
+  First name: <%= form.text_field :first_name %>
+  Last name : <%= form.text_field :last_name %>
+
+  <%= form.fields_for :employees do |employee_fields| %>
+    First name: <%= employee_fields.text_field :first_name %>
+    Last name : <%= employee_fields.text_field :last_name %>
+    job_type : <%= employee_fields.text_field :job_type %>
+  <% end %>
+
+  <%= form.fields_for :president do |president_fields| %>
+    First name: <%= president_fields.text_field :first_name %>
+    Last name : <%= president_fields.text_field :last_name %>
+  <% end %>
+
+  <%= form.submit %>
+<% end %>
